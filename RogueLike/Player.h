@@ -14,6 +14,7 @@ private:
 public:
 	Player(string name, bool isHuman);
 	virtual ~Player();
+	Stats* getStats();
 };
 
 
@@ -26,4 +27,9 @@ Player::Player(string name, bool isHuman) {
 
 
 Player::~Player() {
+
+}
+
+Stats* Player::getStats() {
+	return &this->st_stats;
 }

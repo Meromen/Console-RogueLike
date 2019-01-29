@@ -91,7 +91,7 @@ public:
 };
 
 
-Stats::Stats(){
+Stats::Stats() {
 	i_strength = 1;
 	i_strength = 1;
 	i_magicka = 1;
@@ -106,7 +106,7 @@ Stats::Stats(){
 }
 
 
-Stats::~Stats(){
+Stats::~Stats() {
 
 }
 
