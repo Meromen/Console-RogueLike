@@ -1,46 +1,57 @@
 #include<iostream>
 #include<string>
+#include<queue>
 #include<vector>
 #include"Interface.h"
 using namespace std;
 
 
-int roll() {
+int rollEdge() {
 	return 1 + rand() % 6;
 }
 
 int main() {
 
-	vector<Player> v_players;
-	v_players.push_back(Player("Bob", true));
-	v_players.push_back(Player("Fred", true));
-	v_players.push_back(Player("Andy", true));
-	v_players.push_back(Player("Dennis", true));
+	vector<Player> players;
+	players.push_back(Player("Bob", true));
+	players.push_back(Player("Fred", true));
+	players.push_back(Player("Andy", true));
+	players.push_back(Player("Dennis", true));
 
 
-	int i_command = 0;
-	int i_roll = 1;
-	bool b_quit = false;
-	Interface if_inteface = Interface();
+	int command = 0;
+	int roll = 1;
+	bool quit = false;
+	Interface gameInterface = Interface();
+	queue<string> drawQueue;
+	drawQueue.push(gameInterface.getMap());
+	drawQueue.push(gameInterface.getMenu());
 
+	while (!quit) {
+		system("clear");
 
-	while (!b_quit) {
-		
-		cout << s_map << "\n\n";
-		cout << s_menu << "\n";
+		while (!drawQueue.empty()) {
+			cout << drawQueue.front();
+			drawQueue.pop();
+		}	
+	
+		cin >> command;
 
-		cin >> i_command;
-
-
-		if (i_command == 1){
-			i_roll = roll();
-			cout << v_cubeEdges[i_roll - 1] << "\n";
-		} 
-		else if (i_command == 2) {
-			cout << "smth" << "\n";
-		} 
-		else {
-			cout << "Govno key" << "\n";
+		switch (command)
+		{
+			case 1:
+				drawQueue.push(gameInterface.getMap());
+				drawQueue.push(gameInterface.getCube()[rollEdge() - 1]);
+				drawQueue.push(gameInterface.getMenu());
+				break;
+			case 0:
+				quit = true;
+				break;
+			default:
+				drawQueue.push(gameInterface.getMap());
+				drawQueue.push("Invalid Input");	
+				drawQueue.push(gameInterface.getMenu());
+				break;
 		}
 	}
 

@@ -1,4 +1,7 @@
 #pragma once
+#include<string>
+#include<iostream>
+using namespace std;
 
 #define START_DMG 5
 #define START_CHANCE_HIT 50
@@ -88,6 +91,17 @@ public:
 	int getShopDiscount();
 	int getMpRestore();
 	int getSpellDmg();
+
+	void increaseStrength();
+	void increaseMagica();
+	void increaseAgility();
+	void increaseVitality();
+	void increaseAttack();
+	void increaseDefence();
+	void increaseCharisma();
+	void increaseStamina();
+
+	string statsToString();
 };
 
 
@@ -265,4 +279,70 @@ int Stats::getMpRestore() {
 
 int Stats::getSpellDmg() {
 	return this->i_spellDmg;
+}
+
+string Stats::statsToString() {
+	string s_statsString = "";
+
+	s_statsString += "Strength: " + to_string(this->getStrength());
+    s_statsString += "Magica: " + to_string(this->getMagica()) + "\n";
+    s_statsString += "Agility: " + to_string(this->getAgility());
+    s_statsString += "Vitality: " + to_string(this->getVitality()) + "\n";
+    s_statsString += "Attack: " + to_string(this->getAttack());
+    s_statsString += "Defence: " + to_string(this->getDefence()) + "\n";
+    s_statsString += "Charisma: " + to_string(this->getCharisma());
+    s_statsString += "Stamina: " + to_string(this->getStamina()) + "\n";
+    
+    s_statsString += "Hp: " + to_string(this->getHp());
+    s_statsString += "Mp: " + to_string(this->getMp()) + "\n";
+    s_statsString += "Damage: " + to_string(this->getDmg());
+    s_statsString += "MoveSpeed: " + to_string(this->getMoveSpeed()) + "\n";
+    s_statsString += "Chance Hit: " + to_string(this->getChanceHit()) + '%';
+    s_statsString += "Chance Block: " + to_string(this->getChanceBlock()) + '%' + "\n";
+    s_statsString += "Chance Taunt: " + to_string(this->getChanceTaunt()) + '%';
+    s_statsString += "Shop Discount: " + to_string(this->getShopDiscount()) + "\n";
+    s_statsString += "Mp restore: " + to_string(this->getMpRestore());
+    s_statsString += "Spell Damage: " + to_string(this->getSpellDmg()) + "\n\n";	
+
+	return s_statsString;
+}
+
+void Stats::increaseStrength() {
+	this->i_strength++;
+	this->updateStats();
+}
+
+void Stats::increaseMagica() {
+	this->i_magicka++;	
+	this->updateStats();
+}
+
+void Stats::increaseAgility() {
+	this->i_agility++;
+	this->updateStats();
+}
+
+void Stats::increaseVitality() {
+	this->i_vitality++;
+	this->updateStats();
+}
+
+void Stats::increaseAttack() {
+	this->i_attack++;
+	this->updateStats();
+}
+
+void Stats::increaseDefence() {
+	this->i_defence++;
+	this->updateStats();
+}
+
+void Stats::increaseCharisma() {
+	this->i_charisma++;
+	this->updateStats();
+}
+
+void Stats::increaseStamina() {
+	this->i_stamina++;
+	this->updateStats();
 }

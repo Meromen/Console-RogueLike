@@ -2,7 +2,7 @@
 #include<string>
 #include<vector>
 #include<iostream>
-#include<Player.h>
+#include"Player.h"
 using namespace std;
 
 class Interface
@@ -47,9 +47,9 @@ Interface::Interface(){
 	s_map += "################################################################################";
 	s_map += "################################################################################";
 	s_map += "################################################################################";
-	s_map += "################################################################################";
+	s_map += "################################################################################\n\n";
 
-	s_menu = "0. Exit    1. Roll    2. Wait";
+	s_menu = "0. Exit    1. Roll    2. Wait\n";
 
 	s_rollOne += "#####\n";
 	s_rollOne += "#####\n";
@@ -124,24 +124,7 @@ void Interface::printMenu() {
 }
 
 void Interface::printStatsInfo(Player &player) {
-    Stats* playerStats = player.getStats();    
-    this->s_statsInfo += "Strength: " + to_string(playerStats->getStrength());
-    this->s_statsInfo += "Magica: " + to_string(playerStats->getMagica()) + "\n";
-    this->s_statsInfo += "Agility: " + to_string(playerStats->getAgility());
-    this->s_statsInfo += "Vitality: " + to_string(playerStats->getVitality()) + "\n";
-    this->s_statsInfo += "Attack: " + to_string(playerStats->getAttack());
-    this->s_statsInfo += "Defence: " + to_string(playerStats->getDefence()) + "\n";
-    this->s_statsInfo += "Charisma: " + to_string(playerStats->getCharisma());
-    this->s_statsInfo += "Stamina: " + to_string(playerStats->getStamina()) + "\n";
-    
-    this->s_statsInfo += "Hp: " + to_string(playerStats->getHp());
-    this->s_statsInfo += "Mp: " + to_string(playerStats->getMp()) + "\n";
-    this->s_statsInfo += "Damage: " + to_string(playerStats->getDmg());
-    this->s_statsInfo += "MoveSpeed: " + to_string(playerStats->getMoveSpeed()) + "\n";
-    this->s_statsInfo += "Chance Hit: " + to_string(playerStats->getChanceHit()) + '%';
-    this->s_statsInfo += "Chance Block: " + to_string(playerStats->getChanceBlock()) + '%' + "\n";
-    this->s_statsInfo += "Chance Taunt: " + to_string(playerStats->getChanceTaunt()) + '%';
-    this->s_statsInfo += "Shop Discount: " + to_string(playerStats->getShopDiscount()) + "\n";
-    this->s_statsInfo += "Mp restore: " + to_string(playerStats->getMpRestore());
-    this->s_statsInfo += "Spell Damage: " + to_string(playerStats->getSpellDmg()) + "\n";	
+    Stats* playerStats;
+
+	cout << playerStats->statsToString();    
 }
