@@ -284,24 +284,24 @@ int Stats::getSpellDmg() {
 string Stats::statsToString() {
 	string s_statsString = "";
 
-	s_statsString += "Strength: " + to_string(this->getStrength());
-    s_statsString += "Magica: " + to_string(this->getMagica()) + "\n";
-    s_statsString += "Agility: " + to_string(this->getAgility());
+	s_statsString += "Strength: " + to_string(this->getStrength()) + "   ";
+    s_statsString += "Magica: " + to_string(this->getMagica()) + "   ";
+    s_statsString += "Agility: " + to_string(this->getAgility()) + "   ";
     s_statsString += "Vitality: " + to_string(this->getVitality()) + "\n";
-    s_statsString += "Attack: " + to_string(this->getAttack());
-    s_statsString += "Defence: " + to_string(this->getDefence()) + "\n";
-    s_statsString += "Charisma: " + to_string(this->getCharisma());
-    s_statsString += "Stamina: " + to_string(this->getStamina()) + "\n";
+    s_statsString += "Attack: " + to_string(this->getAttack()) + "     ";
+    s_statsString += "Defence: " + to_string(this->getDefence()) + "  ";
+    s_statsString += "Charisma: " + to_string(this->getCharisma()) + "  ";
+    s_statsString += "Stamina: " + to_string(this->getStamina()) + "\n\n";
     
-    s_statsString += "Hp: " + to_string(this->getHp());
+    s_statsString += "Hp: " + to_string(this->getHp()) + "               ";
     s_statsString += "Mp: " + to_string(this->getMp()) + "\n";
-    s_statsString += "Damage: " + to_string(this->getDmg());
+    s_statsString += "Damage: " + to_string(this->getDmg()) + "            ";
     s_statsString += "MoveSpeed: " + to_string(this->getMoveSpeed()) + "\n";
-    s_statsString += "Chance Hit: " + to_string(this->getChanceHit()) + '%';
+    s_statsString += "Chance Hit: " + to_string(this->getChanceHit()) + '%' + "      ";
     s_statsString += "Chance Block: " + to_string(this->getChanceBlock()) + '%' + "\n";
-    s_statsString += "Chance Taunt: " + to_string(this->getChanceTaunt()) + '%';
+    s_statsString += "Chance Taunt: " + to_string(this->getChanceTaunt()) + '%' + "    ";
     s_statsString += "Shop Discount: " + to_string(this->getShopDiscount()) + "\n";
-    s_statsString += "Mp restore: " + to_string(this->getMpRestore());
+    s_statsString += "Mp restore: " + to_string(this->getMpRestore()) + "       ";
     s_statsString += "Spell Damage: " + to_string(this->getSpellDmg()) + "\n\n";	
 
 	return s_statsString;

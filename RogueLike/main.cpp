@@ -24,6 +24,7 @@ int main() {
 	bool quit = false;
 	Interface gameInterface = Interface();
 	queue<string> drawQueue;
+	drawQueue.push(gameInterface.getTitle());
 	drawQueue.push(gameInterface.getMap());
 	drawQueue.push(gameInterface.getMenu());
 
@@ -40,14 +41,20 @@ int main() {
 		switch (command)
 		{
 			case 1:
+				drawQueue.push(gameInterface.getTitle());
 				drawQueue.push(gameInterface.getMap());
 				drawQueue.push(gameInterface.getCube()[rollEdge() - 1]);
 				drawQueue.push(gameInterface.getMenu());
+				break;
+			case 2:
+				drawQueue.push(gameInterface.getTitle());
+				drawQueue.push(gameInterface.getStatsInfo(players[1]));
 				break;
 			case 0:
 				quit = true;
 				break;
 			default:
+				drawQueue.push(gameInterface.getTitle());
 				drawQueue.push(gameInterface.getMap());
 				drawQueue.push("Invalid Input");	
 				drawQueue.push(gameInterface.getMenu());
